@@ -1,0 +1,2 @@
+# java_design_pattern
+デザインパターンを学ぶための資料です
