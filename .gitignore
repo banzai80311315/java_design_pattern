@@ -1,0 +1,28 @@
+# Java class files
+*.class
+
+# Log files
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Eclipse
+.project
+.classpath
+.settings/
+bin/
+tmp/
+target/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Build tools
+.gradle/
+build/
+out/
