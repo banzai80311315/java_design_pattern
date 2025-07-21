@@ -1,7 +1,38 @@
-# java_design_pattern
-デザインパターンを学ぶための資料です
-
+# java design pattern
 ## Iteratorパターン
 集合体（Aggregate)内部の要素を順番に取り出すための方法（Iterator）を提供するデザインパターンのこと。
 
-**BookShelfをどのように修正しようとも、BookShelfがiteratorメソッドを持っていて、正しいIterator<Book>を返してくれさえすればmainを変更する必要がない**
+**練習問題ポイント**
+
+`BookShelf`をどのように修正しようとも、`BookShelf`が`iterator`メソッドを持っていて、正しい`Iterator<Book>`を返してくれさえすれば`main`を変更する必要がない
+
+## Adapterパターン
+「すでに提供されているもの(Adaptee)」と「必要なもの(Target)」の間の「ずれ」を埋めるデザインパターンのこと。
+
+**練習問題ポイント**
+
+```java
+Print print = new PrintBanner();
+```
+
+スタック領域に対して`Print`型の参照を持った`print`が格納される。
+そして、ヒープ領域に対して`PrintBanner`型の実態が格納される。
+このことによって、メソッドの内容は`PrintBanner`型のものが利用されることになる。
+また、`Print`インターフェイスのメソッドだけ用いるという点を強調できる。
+
+**スタック領域**
+- 変数`print`が格納
+- 型は`Print`
+- 値はヒープ上のオブジェクトの参照
+
+**ヒープ領域**
+- `new PrintBanner()`によって生成されたオブジェクトが格納
+- 実態は`PrintBanner`型
+
+**練習問題ポイント**
+
+[Javaプロパティファイル](https://qiita.com/AsahinaKei/items/93e50eee48e317814fbd)
+
+プロパティファイルは「外部ファイル」のこと。アプリケーションの設定情報を「外部ファイル」としてアプリケーションと分離させることで、コードの再コンパイルやアプリケーションの再ビルドをせずに挙動を変えることなどができ便利。
+
+

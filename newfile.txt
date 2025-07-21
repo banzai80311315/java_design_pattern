@@ -1,0 +1,5 @@
+#create new file
+#Mon Jul 21 23:29:54 JST 2025
+depth=32
+height=512
+width=1024
