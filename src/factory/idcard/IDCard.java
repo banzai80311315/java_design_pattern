@@ -4,10 +4,12 @@ import factory.framework.Product;
 
 public class IDCard extends Product {
 	private String owner;
+	private int number;
 
-	public IDCard(String owner) {
-		System.out.print(owner + "のカードを作成します");
+	IDCard(String owner, int number) {
+		System.out.print(owner + "のカードを作成します。" + "\n番号は" + number + "です。");
 		this.owner = owner;
+		this.number = number;
 	}
 
 	@Override
@@ -18,11 +20,15 @@ public class IDCard extends Product {
 
 	@Override
 	public String toString() {
-		return "[IDCard : " + owner + "]";
+		return "[IDCard : " + owner + "(" + number + ")" + "]";
 	}
 
 	public String getOwner() {
 		return owner;
+	}
+
+	public int getNumber() {
+		return number;
 	}
 
 }
