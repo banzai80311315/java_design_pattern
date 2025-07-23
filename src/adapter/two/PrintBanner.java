@@ -1,4 +1,4 @@
-package adaptertwo;
+package adapter.two;
 
 public class PrintBanner extends Print {
 	private Banner banner;

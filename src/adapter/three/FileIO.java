@@ -1,4 +1,4 @@
-package adapterthree;
+package adapter.three;
 
 import java.io.IOException;
 
