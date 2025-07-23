@@ -40,6 +40,7 @@ Print print = new PrintBanner();
 スーパークラスで処理の枠組みを定めて、サブクラスでその具体的な内容を定めるデザインパターンのこと。
 
 **練習問題ポイント**
+
 [InputStream](https://docs.oracle.com/javase/jp/8/docs/api/java/io/InputStream.html)
 
 ### アクセス修飾子（アクセス演算子）とは？
@@ -72,7 +73,6 @@ sampleでは、`framework`パッケージは`idcard`パッケージを呼び出�
 ### static Factory Methodについて
 インスタンス生成のためのクラスメソッドをstatic Factory Methodと呼ぶ。
 
-
-
 **練習問題ポイント**
 
+Concreateなクラスのみ修正を実施した
