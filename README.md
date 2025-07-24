@@ -75,4 +75,51 @@ sampleでは、`framework`パッケージは`idcard`パッケージを呼び出�
 
 **練習問題ポイント**
 
-Concreateなクラスのみ修正を実施した
+Concreateなクラスのみ修正
+
+## Singletonパターン
+
+**練習問題ポイント**
+
+[Arrays](https://docs.oracle.com/javase/jp/8/docs/api/java/util/Arrays.html)
+
+[ラムダ式](https://qiita.com/kenRp01/items/4045a7925340088bd7e3)
+
+解答の初期化子は以下と同等
+
+```java
+Arrays.stream(names).forEach(s -> map.put(s, new Triple(s)));
+# 同等
+for (String s : names) {
+    map.put(s, new Triple(s));
+}
+```
+
+**練習問題ポイント**
+synchronizedを付与することで「このメソッドは1つのスレッドしか同時に実行しない」といロックをかけることができる。
+
+```java
+public static synchronized SynchronizedSingleton getInstance() {
+	if(singleton == null) {
+		singleton = new SynchronizedSingleton();
+	}
+	return singleton;
+}
+``` 
+
+イメージ
+
+
+```bash
+Thread A:  →→ getInstance() ←🔒 ロックを取得！他は待って！
+              ↓
+          singleton == null → new BadSingleton()
+              ↓
+              return instance
+              🔓 ロック解除
+
+Thread B: （その間は待機）
+Thread C: （その間は待機）
+Thread D: （その間は待機）
+```
+
