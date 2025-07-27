@@ -145,5 +145,57 @@ Thread D: （その間は待機）
 構造を持ったインスタンスを組み上げていくパターンのこと。
 
 ## Abstract Factoryパターン
+内容が難しいのでとりあえず引用
+
+> 部品の具体的な実装には注目せずに、インターフェイスに注目する。そして、そのインターフェイスだけを使って、部品を組み立て、製品にまとめる。
+
+**抽象的**：具体的にどのように実装されているかについては考えず、インターフェイスだけ注目している状態
+
+**sample code**
+
+Link,Tray は「抽象的な部品」Page は「抽象的な製品」と見る。Factoryは「抽象的な工場」
+
+リフレクション：クラスやコンストラクタといったプログラムの構成要素をプログラム自身が行う。
+
+↓ ClassクラスのforNameメソッドを使って、そのクラスを動的に読み込む。そして、getDeclaredConstructorメソッドでコンストラクタを得て、newInstanceメソッドでインスタンスを作成
+
+```java
+factory = (Factory)Class.forName(classname).getDeclaredConstructor().newInstance();
+```
+
+**実行部分**
+
+```bash
+javac Main.java divfactory/DivFactory.java
+```
+
+- `javac` は Java のコンパイラです。`.java` ファイルを `.class` に変換。
+- `Main.java`：エントリーポイントとなるクラス。
+- `divfactory/DivFactory.java`：HTML部品を生成する具体的なファクトリクラス。
+- パッケージ構成を保つため、`divfactory/` というフォルダと `package divfactory;` の宣言が一致している必要がある。
+
+
+
+```bash
+java Main div.html divfactory.DivFactory
+```
+
+- `java` は Javaプログラムの実行コマンド。
+- `Main`：実行するクラス名（拡張子 `.class` は不要）
+- 第1引数：出力する HTML ファイル名（例：`div.html`）
+- 第2引数：使用するファクトリクラスの完全修飾名（パッケージ名 + クラス名）
+
+この引数は `Main.java` 側の `main(String[] args)` で次のように受け取れる：
+
+```java
+String filename = args[0]; // "div.html"
+String factoryClassname = args[1]; // "divfactory.DivFactory"
+```
+
+`Main` クラスは、この文字列から `Factory` クラスを動的に生成し、HTMLを組み立ててファイルに書き込み。
+
+
+
+
 
 # 分けて考える
